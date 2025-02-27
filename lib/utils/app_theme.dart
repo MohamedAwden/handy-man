@@ -6,6 +6,7 @@ class AppTheme {
   static const Color yellow = Color(0xffFEBC11);
   static const Color green = Color(0xff60CB1E);
   static const Color grey = Color(0xff6B6B6B);
+  static const Color backGround = Color(0xff959595);
   static ThemeData darkTheme = ThemeData(
     textTheme: const TextTheme(
         titleLarge: TextStyle(
@@ -30,5 +31,6 @@ class AppTheme {
     ),
 
     ),
+
   );
 }

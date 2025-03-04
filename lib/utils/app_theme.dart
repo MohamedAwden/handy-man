@@ -7,30 +7,35 @@ class AppTheme {
   static const Color green = Color(0xff60CB1E);
   static const Color grey = Color(0xff6B6B6B);
   static const Color backGround = Color(0xff959595);
+  static const Color red = Color(0xffC60404);
   static ThemeData darkTheme = ThemeData(
     textTheme: const TextTheme(
-        titleLarge: TextStyle(
-      color: white,
-      fontWeight: FontWeight.bold,
-      fontSize: 24,
+      titleLarge: TextStyle(
+        color: white,
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
+      ),
+      titleSmall: TextStyle(
+        color: white,
+        fontWeight: FontWeight.w400,
+        fontSize: 14,
+      ),
+      titleMedium: TextStyle(
+        color: black,
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+      ),
+      labelSmall: TextStyle(
+        color: grey,
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
     ),
-        titleSmall: TextStyle(
-      color: white,
-      fontWeight: FontWeight.w400,
-      fontSize: 14,
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: white,
+      type: BottomNavigationBarType.fixed,
+      selectedItemColor:black,
+      unselectedItemColor: grey,
     ),
-        titleMedium: TextStyle(
-      color: black,
-      fontWeight: FontWeight.bold,
-      fontSize: 18,
-    ),
-        labelSmall: TextStyle(
-      color: grey,
-      fontWeight: FontWeight.bold,
-      fontSize: 16,
-    ),
-
-    ),
-
   );
 }

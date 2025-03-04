@@ -44,106 +44,98 @@ class Login extends StatelessWidget {
             ),
             Spacer(flex: 1),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 8,vertical: 32),
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 32),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(11),
                 color: AppTheme.backGround.withOpacity(0.15),
               ),
-
-                child: Column(
-
-                  children: [
-
-                    CustomTextFormField(
-                      controller: email,
-                      hintText: "Email",
-                      validator: emailValidator,
+              child: Column(
+                children: [
+                  CustomTextFormField(
+                    controller: email,
+                    hintText: "Email",
+                    validator: emailValidator,
+                  ),
+                  SizedBox(
+                    height: 35,
+                  ),
+                  CustomTextFormField(
+                    controller: password,
+                    hintText: "Password",
+                    isPassword: true,
+                    validator: validatePassword,
+                    icon: Icon(
+                      Icons.visibility_off,
+                      color: AppTheme.grey,
                     ),
-                    SizedBox(
-                      height: 35,
-                    ),
-                    CustomTextFormField(
-                      controller: password,
-                      hintText: "Password",
-                      isPassword: true,
-                      validator: validatePassword,
-                      icon: Icon(
-                        Icons.visibility_off,
-                        color: AppTheme.grey,
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  CustomButton(
+                    action: () {},
+                    text: 'Login',
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        ' Don’t Have Account ? ',
+                        style: textTheme.titleSmall,
                       ),
-                    ),
-                    SizedBox(
-                      height: 40,
-                    ),
-                    CustomButton(
-                      action: () {},
-                      text: 'Login',
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          ' Don’t Have Account ? ',
-                          style: textTheme.titleSmall,
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushReplacementNamed(context, Register.routeName);
-
-                          },
-                          child: Text(
-                            'Create Account',
-                            style: textTheme.titleSmall!.copyWith(
-                              decoration: TextDecoration.underline,
-                              decorationColor: Colors.white,
-                              decorationThickness: 2,
-                            ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                              context, Register.routeName);
+                        },
+                        child: Text(
+                          'Create Account',
+                          style: textTheme.titleSmall!.copyWith(
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.white,
+                            decorationThickness: 2,
                           ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: AppTheme.white),
+                        borderRadius: BorderRadius.circular(16),
+                        color: AppTheme.black),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          'assets/images/google.png',
+                          height: 24,
+                          width: 24,
+                        ),
+                        Spacer(),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Text(
+                          'Continue with Google',
+                          style: textTheme.labelSmall!
+                              .copyWith(color: AppTheme.white),
+                        ),
+                        Spacer(
+                          flex: 2,
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: AppTheme.white),
-                          borderRadius: BorderRadius.circular(16),
-                          color: AppTheme.black),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            'assets/images/google.png',
-                            height: 24,
-                            width: 24,
-                          ),
-                          Spacer(),
-                          SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            'Continue with Google',
-                            style: textTheme.labelSmall!
-                                .copyWith(color: AppTheme.white),
-                          ),
-                          Spacer(
-                            flex: 2,
-                          ),
-                        ],
-
-                      ),
-                    ),
-
-
-
-                  ],
-                ),
+                  ),
+                ],
               ),
-
+            ),
           ],
         ),
       ),

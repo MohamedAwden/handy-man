@@ -10,6 +10,8 @@ import 'package:handyman/pages/home_page.dart';
 import 'package:handyman/utils/app_theme.dart';
 import 'package:handyman/widget/home_screen.dart';
 import 'package:handyman/widget/home_screen.dart';
+import 'package:handyman/widget/worker_details.dart';
+import 'package:handyman/widget/worker_details.dart';
 
 import 'auth/register.dart';
 
@@ -31,6 +33,7 @@ class HandyMan extends StatelessWidget {
         RegisterBusiness.routeName : (_)=>RegisterBusiness(),
         TypeOfUser.routeName : (_)=>TypeOfUser(),
         HomeScreen.routeName : (_)=>HomeScreen(),
+        WorkerDetails.routeName : (_)=>WorkerDetails(),
       },
       initialRoute: HomeScreen.routeName,
       theme: AppTheme.darkTheme,

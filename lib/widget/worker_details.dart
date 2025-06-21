@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:handyman/utils/app_theme.dart';
 import 'package:handyman/widget/custom_button.dart';
+import 'package:handyman/widget/success_screen.dart';
+
+import 'header_worker.dart';
 
 class WorkerDetails extends StatefulWidget {
   const WorkerDetails({Key? key}) : super(key: key);
-  static const String routeName = 'home-navbar/';
+  static const String routeName = 'worker-details';
 
   @override
   _WorkerDetailsState createState() => _WorkerDetailsState();
@@ -19,8 +22,11 @@ class _WorkerDetailsState extends State<WorkerDetails> {
   // Sample lists for each field.
   final List<String> locations = ['New York', 'Los Angeles', 'Chicago'];
   final List<String> availabilityOptions = ['Morning', 'Afternoon', 'Evening'];
-  final List<String> phoneNumbers = ['123-456-7890', '987-654-3210', '555-555-5555'];
-
+  final List<String> phoneNumbers = [
+    '123-456-7890',
+    '987-654-3210',
+    '555-555-5555'
+  ];
 
   void _showBottomSheet({
     required List<String> items,
@@ -81,42 +87,18 @@ class _WorkerDetailsState extends State<WorkerDetails> {
       body: SafeArea(
         child: Column(
           children: [
-            // Top image container.
-            Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
-                ),
-                color: Colors.white,
-              ),
-              width: double.infinity,
-              child: Image.asset(
-                'assets/images/carpenter_worker.png',
-                height: screenSize.height * .3,
-                fit: BoxFit.fitHeight,
-              ),
-            ),
+            HeaderWorker(),
             Padding(
-              padding: const EdgeInsets.all(19.0),
+              padding: const EdgeInsets.symmetric(horizontal: 19.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'JOHN MAYERS',
-                    style: textTheme.titleMedium?.copyWith(color: Colors.white),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    'Carpentry Services',
-                    style: textTheme.titleSmall,
-                  ),
                   SizedBox(height: screenSize.height * .06),
-                  // Tappable "Location" field.
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(selectedLocation ?? "Location", style: textTheme.titleSmall),
+                      Text(selectedLocation ?? "Location",
+                          style: textTheme.titleSmall),
                       InkWell(
                         onTap: () {
                           _showBottomSheet(
@@ -145,7 +127,8 @@ class _WorkerDetailsState extends State<WorkerDetails> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(selectedAvailability ?? "Availability", style: textTheme.titleSmall),
+                      Text(selectedAvailability ?? "Availability",
+                          style: textTheme.titleSmall),
                       InkWell(
                         onTap: () {
                           _showBottomSheet(
@@ -174,7 +157,37 @@ class _WorkerDetailsState extends State<WorkerDetails> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(selectedPhoneNumber ?? "Phone Number", style: textTheme.titleSmall),
+                      Text(selectedPhoneNumber ?? "Phone Number",
+                          style: textTheme.titleSmall),
+                      InkWell(
+                        onTap: () {
+                          _showBottomSheet(
+                            items: phoneNumbers,
+                            title: 'Select Phone Number',
+                            onSelect: (value) {
+                              setState(() {
+                                selectedPhoneNumber = value;
+                              });
+                            },
+                          );
+                        },
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.arrow_forward_ios_sharp,
+                              color: Colors.white,
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: screenSize.height * .06),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(selectedPhoneNumber ?? "Reviews",
+                          style: textTheme.titleSmall),
                       InkWell(
                         onTap: () {
                           _showBottomSheet(
@@ -230,7 +243,14 @@ class _WorkerDetailsState extends State<WorkerDetails> {
                     ],
                   ),
                   SizedBox(height: screenSize.height * .06),
-                  CustomButton(action: () {}, text: 'Reserve'),
+                  CustomButton(
+                    action: () {
+                      Navigator.pushNamed(
+                          context, SuccessScreen.routeName);
+                    },
+                    text: 'Reserve',
+                    widthOfElevatedButton: 0.3,
+                  ),
                 ],
               ),
             ),

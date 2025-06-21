@@ -96,8 +96,8 @@ class ProfileTab extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomButton(action: () {}, text: 'Sign Out'),
-                    CustomButton(action: () {}, text: '   Save    '),
+                    CustomButton(action: () {}, text: 'Sign Out', widthOfElevatedButton:.3,),
+                    CustomButton(action: () {}, text: '   Save    ',widthOfElevatedButton: .3,),
                   ],
                 ),
                 SizedBox(

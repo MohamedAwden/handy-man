@@ -1,9 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:handyman/auth/register_business.dart';
+import 'package:handyman/auth/presentation/screens/register_business.dart';
 
-import '../utils/app_theme.dart';
+import '../../../utils/app_theme.dart';
+import '../../../widget/home_screen.dart';
 
 class TypeOfUser extends StatelessWidget {
   const TypeOfUser({super.key});
@@ -88,7 +89,9 @@ class TypeOfUser extends StatelessWidget {
                               ],
                             ),
                             Spacer(),
-                            Image.asset('assets/icons/icon_buy.png'),
+                            InkWell(onTap: () {
+                              Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+                            },child: Image.asset('assets/icons/icon_buy.png')),
                           ],
                         ),
                       ],

@@ -5,7 +5,7 @@ import 'package:handyman/onboarding_pages/third_onboarding.dart';
 import 'package:handyman/utils/app_theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../auth/login.dart';
+import '../auth/presentation/screens/login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

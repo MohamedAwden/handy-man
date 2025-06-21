@@ -7,6 +7,8 @@ import 'package:handyman/widget/custom_button.dart';
 import 'package:handyman/widget/custom_text_form_field.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../widget/home_screen.dart';
+
 class RegisterBusiness extends StatefulWidget {
   const RegisterBusiness({super.key});
 
@@ -184,7 +186,9 @@ class _RegisterBusinessState extends State<RegisterBusiness> {
                 SizedBox(
                   height: 24,
                 ),
-                CustomButton(action: () {}, text: 'Apply'),
+                CustomButton(action: () {
+                  Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+                }, text: 'Apply',widthOfElevatedButton: 1,),
 
               ],
             ),
